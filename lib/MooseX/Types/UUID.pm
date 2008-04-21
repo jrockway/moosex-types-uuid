@@ -2,6 +2,9 @@ package MooseX::Types::UUID;
 use strict;
 use warnings;
 
+our $VERSION = '0.01';
+our $AUTHORITY = 'CPAN:JROCKWAY';
+
 use MooseX::Types -declare => ['UUID'];
 use MooseX::Types::Moose qw(Str);
 
