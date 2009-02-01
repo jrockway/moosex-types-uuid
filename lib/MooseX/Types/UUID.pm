@@ -2,7 +2,7 @@ package MooseX::Types::UUID;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our $AUTHORITY = 'CPAN:JROCKWAY';
 
 use MooseX::Types -declare => ['UUID'];
@@ -16,7 +16,7 @@ sub _validate_uuid {
 subtype UUID,
   as Str, where { _validate_uuid($_) };
 
-coerce UUID
+coerce UUID,
   # i've never seen lowercase UUIDs, but someone's bound to try it
   from Str, via { uc };
 
@@ -33,7 +33,7 @@ MooseX::Types::UUID - UUID type for Moose classes
   package Class;
   use Moose;
   use MooseX::Types::UUID qw(UUID);
-  
+
   has 'uuid' => ( is => 'ro', isa => UUID );
 
   package main;
