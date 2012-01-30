@@ -10,7 +10,7 @@ use MooseX::Types::Moose qw(Str);
 
 sub _validate_uuid {
     my ($str) = @_;
-    return $str =~ /^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$/;
+    return $str =~ /^[[:xdigit:]]{8}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{12}$/;
 }
 
 subtype UUID,
